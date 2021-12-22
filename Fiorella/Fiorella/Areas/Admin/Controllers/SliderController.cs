@@ -1,4 +1,6 @@
-﻿using Fiorella.Models.DataAccessLayer;
+﻿using Fiorella.Areas.Admin.Constants;
+using Fiorella.Areas.Admin.Utils;
+using Fiorella.Models.DataAccessLayer;
 using Fiorella.Models.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -41,39 +43,35 @@ namespace Fiorella.Areas.Admin.Controllers
             {
                 return View();
             }
-            if (!sliderImage.File.ContentType.Contains("image"))
+            if (!sliderImage.File.IsContains())
             {
                 ModelState.AddModelError(nameof(SliderImage), "File is not supported");
                 return View();
             }
-            if (sliderImage.File.Length > 1000 * 1024)
+            if (sliderImage.File.IsRightSize(1000))
             {
                 ModelState.AddModelError(nameof(SliderImage), "File`s size can not be greater than 1mb");
 
             }
 
-            string wwwroot = _env.WebRootPath;
-            string file = Guid.NewGuid() + sliderImage.File.FileName;
-            string path = Path.Combine(wwwroot, "img", file);
-            using (FileStream fs = new FileStream(path,FileMode.Create))
-            {
-                sliderImage.Image = file;
-                await sliderImage.File.CopyToAsync(fs);
-                await _dt.sliderImage.AddAsync(sliderImage);
-                await _dt.SaveChangesAsync();
-            }
+
+            sliderImage.Image = FileUtils.FileCreate(sliderImage.File);
+            await _dt.sliderImage.AddAsync(sliderImage);
+            await _dt.SaveChangesAsync();
+
+
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Update(int? id)
         {
-            if (!id.HasValue || id.Value<1)
+            if (!id.HasValue || id.Value < 1)
             {
                 return BadRequest();
             }
 
             SliderImage slider = await _dt.sliderImage.FindAsync(id);
-            if (slider==null)
+            if (slider == null)
             {
                 return BadRequest();
             }
@@ -85,6 +83,7 @@ namespace Fiorella.Areas.Admin.Controllers
         [ActionName("Update")]
         public async Task<IActionResult> UpdateSlider(int? id, SliderImage sliderImage)
         {
+          
             if (!ModelState.IsValid)
             {
                 return View();
@@ -106,18 +105,49 @@ namespace Fiorella.Areas.Admin.Controllers
 
             }
 
-            string wwwroot = _env.WebRootPath;
-            string file = Guid.NewGuid() + sliderImage.File.FileName;
-            string path = Path.Combine(wwwroot, "img", file);
-            using (FileStream fs = new FileStream(path, FileMode.Create))
-            {
-                sliderImage.Image = file;
-                await sliderImage.File.CopyToAsync(fs);
-                _dt.sliderImage.Update(sliderImage);
-                await _dt.SaveChangesAsync();
-            }
+            var slider = await _dt.sliderImage.FindAsync(id);
+            string path = Path.Combine(FileConstants.ImagePath, slider.Image);
+
+            slider.Image = FileUtils.FileCreate(sliderImage.File);
+
+            _dt.sliderImage.Update(slider);
+            await _dt.SaveChangesAsync();
+
+
+
             return RedirectToAction(nameof(Index));
 
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            SliderImage sliderImage = await _dt.sliderImage.FindAsync(id);
+            if (sliderImage == null)
+            {
+                return NotFound();
+            }
+            return View(sliderImage);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteSlider(int? id)
+        {
+            SliderImage sliderImage = await _dt.sliderImage.FindAsync(id);
+            if (sliderImage == null)
+            {
+                return NotFound();
+            }
+
+            string path = Path.Combine(FileConstants.ImagePath, sliderImage.Image);
+
+
+            _dt.sliderImage.Remove(sliderImage);
+            await _dt.SaveChangesAsync();
+            FileUtils.FileDelete(path);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -11,17 +11,21 @@
                 <p class="card-description">
                     Create Category
                 </p>
-                <form class="forms-sample" method="post" asp-action="Create">
-
+                <form class="forms-sample" method="post" asp-action="Create" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label asp-for="@Model.LinkedId">LinkedIn</label>
-                        <input class="form-control" asp-for="@Model.LinkedId" id="exampleInputUsername1" placeholder="Name">
-                        <span asp-validation-for="@Model.LinkedId"></span>
+                        <label asp-for="File">LinkedIn</label>
+                        <input class="form-control" asp-for="File" id="exampleInputUsername1" placeholder="Name" accept="image/*">
+                        <span asp-validation-for="File"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="@Model.Facebook">Description</label>
-                        <input class="form-control" asp-for="@Model.Facebook" id="exampleInputUsername1" placeholder="Description">
-                        <span asp-validation-for="@Model.Facebook"></span>
+                        <label asp-for="LinkedId">LinkedIn</label>
+                        <input class="form-control" asp-for="LinkedId" id="exampleInputUsername1" placeholder="Name">
+                        <span asp-validation-for="LinkedId"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Facebook">Description</label>
+                        <input class="form-control" asp-for="Facebook" id="exampleInputUsername1" placeholder="Description">
+                        <span asp-validation-for="Facebook"></span>
                     </div>
 
                     <button type="submit" class="btn btn-primary me-2">Submit</button>
