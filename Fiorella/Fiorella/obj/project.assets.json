@@ -7130,11 +7130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\afsana.mammadova\\Desktop\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
+      "projectUniqueName": "C:\\Users\\afsana.mammadova\\source\\repos\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
       "projectName": "Fiorella",
-      "projectPath": "C:\\Users\\afsana.mammadova\\Desktop\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
+      "projectPath": "C:\\Users\\afsana.mammadova\\source\\repos\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
       "packagesPath": "C:\\Users\\afsana.mammadova\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\afsana.mammadova\\Desktop\\Fiorella\\Fiorella\\Fiorella\\obj\\",
+      "outputPath": "C:\\Users\\afsana.mammadova\\source\\repos\\Fiorella\\Fiorella\\Fiorella\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\afsana.mammadova\\AppData\\Roaming\\NuGet\\NuGet.Config",

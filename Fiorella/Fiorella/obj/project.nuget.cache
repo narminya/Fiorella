@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8ZR4Ej+FbopEtJf9DOgr7Ct7YPBVKfNLfSwctMsKbGYhcDUZSRl5A5ZgdevDCvo/MNTMAYJT+HXDTp3ILlTakA==",
+  "dgSpecHash": "PIBUrv6MCHZoYGi8L/HDq9IZlkK2uDxC/c0hCR1rUlviEm6LUyYfLC9W5AetbLLh3HiVzGtVdmUCT4lWYM3sng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\afsana.mammadova\\Desktop\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
+  "projectFilePath": "C:\\Users\\afsana.mammadova\\source\\repos\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\afsana.mammadova\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\afsana.mammadova\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

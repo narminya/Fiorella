@@ -1,6 +1,6 @@
-﻿@model List<Category>
+﻿@model List<SliderImage>
 @{
-    ViewData["Title"] = "Category";
+    ViewData["Title"] = "Slider";
 }
 
 <div class="content-wrapper">
@@ -23,12 +23,10 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.Name</td>
-                                        <td>@Html.Raw(item.Description)</td>
+                                        <td><img src="~/img/@item.Image"/></td>
                                         <td class="d-flex justify-content-around">
-                                            <a class="btn btn-primary" asp-controller="Category" asp-action="detail" asp-route-id="@item.Id">Detail</a>
-                                            <a class="btn btn-warning" asp-controller="Category" asp-action="update" asp-route-id="@item.Id">Update</a>
+                                            <a class="btn btn-primary" asp-controller="Slider" asp-action="detail" asp-route-id="@item.Id">Detail</a>
+                                            <a class="btn btn-warning" asp-controller="Slider" asp-action="update" asp-route-id="@item.Id">Update</a>
                                             <form method="post" asp-action="delete" asp-route-id="@item.Id">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
@@ -48,5 +46,4 @@
 @section script {
     <partial name="_ValidatePartial" />
 }
-
 

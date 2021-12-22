@@ -84,5 +84,30 @@ namespace Fiorella.Areas.Admin.Controllers
             return View(category);
         }
 
+        
+        public async Task<IActionResult> Delete(int? id)
+        {
+            Category category = await _dt.categories.FindAsync(id);
+
+            return View(category);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteCategory(int? id)
+        {
+            Category category = await _dt.categories.FindAsync(id);
+
+            if (category==null)
+            {
+                return NotFound();
+            }
+
+            _dt.categories.Remove(category);
+            await _dt.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
