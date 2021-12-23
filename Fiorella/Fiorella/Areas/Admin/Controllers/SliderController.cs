@@ -25,7 +25,7 @@ namespace Fiorella.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<SliderImage> result = await _dt.sliderImage.ToListAsync();
+            List<SliderImage> result = await _dt.sliderImage.Where(s=>s.IsChosen==true).ToListAsync();
             return View(result);
         }
 
@@ -41,25 +41,26 @@ namespace Fiorella.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
+                return NotFound();
+            }
+            if (!sliderImage.File.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError(nameof(SliderImage.File), "File is not supported");
                 return View();
             }
-            if (!sliderImage.File.IsContains())
+            if (sliderImage.File.Length>1000*1024)
             {
-                ModelState.AddModelError(nameof(SliderImage), "File is not supported");
+                ModelState.AddModelError(nameof(SliderImage.File), "File is not supported");
                 return View();
             }
-            if (sliderImage.File.IsRightSize(1000))
-            {
-                ModelState.AddModelError(nameof(SliderImage), "File`s size can not be greater than 1mb");
-
-            }
 
 
-            sliderImage.Image = FileUtils.FileCreate(sliderImage.File);
+            sliderImage.Image = FileUtil.FileCreate(sliderImage.File);
+
             await _dt.sliderImage.AddAsync(sliderImage);
             await _dt.SaveChangesAsync();
 
-
+          
             return RedirectToAction(nameof(Index));
         }
 
@@ -108,7 +109,7 @@ namespace Fiorella.Areas.Admin.Controllers
             var slider = await _dt.sliderImage.FindAsync(id);
             string path = Path.Combine(FileConstants.ImagePath, slider.Image);
 
-            slider.Image = FileUtils.FileCreate(sliderImage.File);
+            slider.Image = FileUtil.FileCreate(sliderImage.File);
 
             _dt.sliderImage.Update(slider);
             await _dt.SaveChangesAsync();
@@ -146,8 +147,10 @@ namespace Fiorella.Areas.Admin.Controllers
 
             _dt.sliderImage.Remove(sliderImage);
             await _dt.SaveChangesAsync();
-            FileUtils.FileDelete(path);
+            FileUtil.FileDelete(path);
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }

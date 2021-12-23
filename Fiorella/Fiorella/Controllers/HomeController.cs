@@ -22,7 +22,7 @@ namespace Fiorella.Controllers
         {
 
             var slider = await _dt.slider.FirstOrDefaultAsync();
-            var sliderImages = await _dt.sliderImage.ToListAsync();
+            var sliderImages = await _dt.sliderImage.Where(s=>s.IsChosen==true).ToListAsync();
             var aboutDetails = await _dt.aboutDetails.ToListAsync();
             var about = await _dt.about.FirstOrDefaultAsync();
             var categories = await _dt.categories.ToListAsync();

@@ -288,15 +288,22 @@ namespace Fiorella.Models.DataAccessLayer
                 db.sliderImage.AddRange(new SliderImage
                 {
                     Image = "h3-slider-background.jpg",
+                    SliderId = 1,
+                    IsChosen = true
 
                 },
                 new SliderImage
                 {
-                    Image = "h3-slider-background-2.jpg"
+                    Image = "h3-slider-background-2.jpg",
+                    SliderId = 1,
+                    IsChosen = true
+
                 },
                  new SliderImage
                  {
-                     Image = "h3-slider-background-3.jpg"
+                     Image = "h3-slider-background-3.jpg",
+                     SliderId = 1,
+                     IsChosen = false
                  }
                 );
 

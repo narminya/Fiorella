@@ -761,3 +761,8 @@ C:\Users\Narminya\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Area
 C:\Users\Narminya\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Slider\Update.cshtml.g.cs
 C:\Users\Narminya\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\Narminya\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\afsana.mammadova\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Slider\Create.cshtml.g.cs
+C:\Users\afsana.mammadova\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Slider\Index.cshtml.g.cs
+C:\Users\afsana.mammadova\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Slider\Update.cshtml.g.cs
+C:\Users\afsana.mammadova\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\MainSlider\Create.cshtml.g.cs
+C:\Users\afsana.mammadova\Desktop\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\MainSlider\Index.cshtml.g.cs

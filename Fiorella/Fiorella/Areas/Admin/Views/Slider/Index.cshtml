@@ -22,6 +22,7 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
+
                                     <tr>
                                         <td><img src="~/img/@item.Image"/></td>
                                         <td class="d-flex justify-content-around">
@@ -45,5 +46,7 @@
 
 @section script {
     <partial name="_ValidatePartial" />
+
+
 }
 

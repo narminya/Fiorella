@@ -94,5 +94,18 @@
   });
 
 
+    $(document).on('click', '#chooseImage', function (e) {
+        var sThisVal = 1;
+        $('input.slider:checkbox:checked').each(function () {
+            sThisVal += $(this).val() * 10;
 
+        });
+        $.ajax({
+            type: "GET",
+            url: "Mainslider/chooseimage/" + sThisVal,
+            success: function (res) {
+                console.log(sThisVal)
+            }
+        })
+    })
 })(jQuery);
