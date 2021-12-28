@@ -1,8 +1,10 @@
 using Fiorella.Areas.Admin.Constants;
 using Fiorella.Models.DataAccessLayer;
+using Fiorella.Models.Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +34,12 @@ namespace Fiorella
         {
             services.AddMvc();
             services.AddSession();
+
+            services.AddIdentity<User, IdentityRole>(options => {
+                options.Password.RequiredLength = 6;
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<FiorellaDataContext>().AddDefaultTokenProviders();
+
             services.AddDbContext<FiorellaDataContext>(cfg =>
             {
                 cfg.UseSqlServer(_conf.GetConnectionString("DefaultConnection"));
@@ -51,6 +59,7 @@ namespace Fiorella
 
             app.UseRouting();
             app.Seed();
+            app.UseAuthentication();
             app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fiorella.Models.DataAccessLayer
 {
-    public class FiorellaDataContext : DbContext
+    public class FiorellaDataContext : IdentityDbContext
     {
         public FiorellaDataContext(DbContextOptions<FiorellaDataContext> options)
             :base(options)
@@ -33,6 +33,7 @@ namespace Fiorella.Models.DataAccessLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Blog>(b =>
             {
                 b.Property(p => p.CreatedDate).HasDefaultValueSql("DATEADD(HOUR,4,GETUTCDATE())");

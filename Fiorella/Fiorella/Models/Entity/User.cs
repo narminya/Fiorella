@@ -2,8 +2,9 @@
 
 namespace Fiorella.Models.Entity
 {
-    public class User :BaseEntity
+    public class User : IdentityUser
     {
         public string FullName { get; set; }
+        public string Password { get; set; }
     }
 }
