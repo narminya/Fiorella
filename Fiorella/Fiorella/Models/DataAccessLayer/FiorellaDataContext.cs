@@ -1,4 +1,5 @@
 ﻿using Fiorella.Models.Entity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,6 @@ namespace Fiorella.Models.DataAccessLayer
         public DbSet<Experts> experts { get; set; }
         public DbSet<ContactSection> contactSection { get; set; }
         public DbSet<LayoutInfo> layouts { get; set; }
-        public DbSet<Role> roles { get; set; }
-        public DbSet<User> users { get; set; }
         public DbSet<Blog> blogs { get; set; }
         public DbSet<MiniSlider> miniSliders { get; set; }
         public DbSet<SliderImage> instaSlider { get; set; }

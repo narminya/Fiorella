@@ -4,6 +4,12 @@
 }
 
 <div class="content-wrapper">
+    <div class="form-group">
+        <input class="form-control" id="categorySearch" placeholder="Search for category"/>
+    </div>
+    <div class="result">
+
+    </div>
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
@@ -47,6 +53,22 @@
 
 @section script {
     <partial name="_ValidatePartial" />
+
+    <script>
+    
+    $(document).on("keyup", "#categorySearch", function () {
+        let searchFor = $(this).val();
+        $.ajax({
+            type:"GET",
+            url : "Category/Search?searchFor=" + searchFor,
+            success : function (res) {
+                $(".result").html("");
+                $(".result").append(res);
+
+            }
+        })
+    })
+    </script>
 }
 
 

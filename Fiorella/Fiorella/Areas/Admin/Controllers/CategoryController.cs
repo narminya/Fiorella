@@ -109,5 +109,16 @@ namespace Fiorella.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<PartialViewResult> Search(string searchFor)
+        {
+            if (string.IsNullOrWhiteSpace(searchFor))
+            {
+                return PartialView("_SearchCategoryPartial", new List<Category>());
+            }
+
+            var result = await _dt.categories.Where(p => p.Name.ToLower().Contains(searchFor.ToLower())).ToListAsync();
+            return PartialView("_SearchCategoryPartial", result); 
+        }
+
     }
 }

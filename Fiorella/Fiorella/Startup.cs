@@ -32,11 +32,10 @@ namespace Fiorella
         {
             services.AddMvc();
             services.AddSession();
-
             services.AddDbContext<FiorellaDataContext>(cfg =>
             {
-                //cfg.UseSqlServer(_conf.GetConnectionString("DefaultConnection"));
-                cfg.UseInMemoryDatabase(databaseName: "Fiorella");
+                cfg.UseSqlServer(_conf.GetConnectionString("DefaultConnection"));
+               // cfg.UseInMemoryDatabase(databaseName: "Fiorella");
             });
 
             FileConstants.ImagePath = Path.Combine(_env.WebRootPath, "img");

@@ -24,8 +24,8 @@ namespace Fiorella.Models.DataAccessLayer
                 InitContactSection(db);
                 InitLayoutInfo(db);
                 InitBlog(db);
-              // InitUser(db);
-                InitRole(db);
+                // InitUser(db);
+                //InitRole(db);
                 InitInstaSlide(db);
             }
             return app;
@@ -46,26 +46,8 @@ namespace Fiorella.Models.DataAccessLayer
             }
             db.SaveChanges();
         }
-        private static void InitRole(FiorellaDataContext db)
-        {
-            if (!db.roles.Any())
-            {
-                db.roles.AddRange(
-                    new Role { RoleName = "User" },
-                    new Role { RoleName = "Admin" });
-            }
-            db.SaveChanges();
-        }
-        private static void InitUser(FiorellaDataContext db)
-        {
-            if (!db.users.Any())
-            {
-                db.users.AddRange(
-                    new User { Name = "Cintia", Surname = "Nixon", RoleId = 1 },
-                    new User { Name = "Carrie", Surname = "Parker", RoleId = 2 });
-            }
-            db.SaveChanges();
-        }
+
+
         private static void InitBlog(FiorellaDataContext db)
         {
             if (!db.blogs.Any())
@@ -75,7 +57,7 @@ namespace Fiorella.Models.DataAccessLayer
                     {
                         Title = "Flower Power",
                         Description = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
- 
+
                         Image = "blog-feature-img-1.jpg"
                     },
                       new Blog

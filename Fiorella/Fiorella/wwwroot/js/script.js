@@ -151,7 +151,7 @@ $(document).ready(function () {
     var skipCount = parseInt($("#skipCount").val());
 
     $("#loadmore").click(function () {
-        console.log("here");
+       
         $.ajax({
             type: "GET",
             url: "Product/LoadMore/" + skipCount,
