@@ -7281,26 +7281,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Narminya\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\afsana.mammadova\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Narminya\\Desktop\\Trash\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
+      "projectUniqueName": "C:\\Users\\afsana.mammadova\\Downloads\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
       "projectName": "Fiorella",
-      "projectPath": "C:\\Users\\Narminya\\Desktop\\Trash\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
-      "packagesPath": "C:\\Users\\Narminya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Narminya\\Desktop\\Trash\\Fiorella\\Fiorella\\Fiorella\\obj\\",
+      "projectPath": "C:\\Users\\afsana.mammadova\\Downloads\\Fiorella\\Fiorella\\Fiorella\\Fiorella.csproj",
+      "packagesPath": "C:\\Users\\afsana.mammadova\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\afsana.mammadova\\Downloads\\Fiorella\\Fiorella\\Fiorella\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Narminya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\afsana.mammadova\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7371,7 +7364,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

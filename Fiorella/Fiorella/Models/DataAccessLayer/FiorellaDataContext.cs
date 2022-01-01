@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fiorella.Models.DataAccessLayer
 {
-    public class FiorellaDataContext : IdentityDbContext
+    public class FiorellaDataContext : IdentityDbContext<User>
     {
         public FiorellaDataContext(DbContextOptions<FiorellaDataContext> options)
             :base(options)

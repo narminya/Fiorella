@@ -1,7 +1,14 @@
 ﻿@model LayoutInfo
 <header>
-    <a asp-controller="Account" asp-action="Login"> Login</a>
+
     <div class="container">
+        @if (User.Identity.IsAuthenticated)
+        {
+<a asp-controller="User" class="Index">@User.Identity.Name</a>
+                <a asp-controller="Account" asp-action="Signout"> Log Out</a> }
+            else
+            {
+<a asp-controller="Account" asp-action="Login"> Login</a>}
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">

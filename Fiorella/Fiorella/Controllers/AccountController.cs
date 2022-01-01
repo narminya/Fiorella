@@ -2,8 +2,10 @@
 using Fiorella.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Fiorella.Controllers
 {
@@ -11,45 +13,40 @@ namespace Fiorella.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
-            _userManager = userManager;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public IActionResult Register()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Register")]
-        public async Task<IActionResult> RegisterNew(RegisterViewModel rvm)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            var dbUser = _userManager.FindByNameAsync(rvm.Username);
-
-            if (dbUser != null)
+            var dbUser = await _userManager.FindByNameAsync(model.Username);
+            if (dbUser!=null)
             {
-                ModelState.AddModelError(nameof(RegisterViewModel.Username), "Already Exists in database");
+                ModelState.AddModelError(nameof(RegisterViewModel.Username), "Already exists in database");
                 return View();
             }
 
             User user = new User()
             {
-                FullName = rvm.FullName,
-                Email = rvm.Email,
-                Password = rvm.Password,
-                UserName = rvm.Username
+                UserName = model.Username,
+                Fullname = model.FullName,
+                Email = model.Email
             };
 
-            IdentityResult identityResult = await _userManager.CreateAsync(user, rvm.Password);
+            var identityResult = await _userManager.CreateAsync(user, model.Password);
             if (!identityResult.Succeeded)
             {
                 foreach (var item in identityResult.Errors)
@@ -57,16 +54,17 @@ namespace Fiorella.Controllers
                     ModelState.AddModelError("", item.Description);
                     return View();
                 }
+              
             }
 
-            return View(nameof(HomeController.Index), "Home");
+            await _signInManager.SignInAsync(user, true);
+            return RedirectToAction("Index","Home");
         }
 
         public IActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel lvm)
@@ -77,27 +75,28 @@ namespace Fiorella.Controllers
             }
 
             var user = await _userManager.FindByEmailAsync(lvm.Email);
-            if (user == null)
+
+            if (user==null)
             {
-                ModelState.AddModelError("", "Not found");
+                ModelState.AddModelError("", "User is not found");
                 return View();
+
             }
 
-          var signin = await _signInManager.PasswordSignInAsync(lvm.Username, lvm.Password, true, true);
-            if (!signin.Succeeded)
+           var signInResult =  await _signInManager.PasswordSignInAsync(user, lvm.Password,lvm.KeepSigned,true);
+            if (!signInResult.Succeeded)
             {
-                ModelState.AddModelError("", "Not found");
+                ModelState.AddModelError("", "Invalid Credentials");
                 return View();
             }
 
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> LogOut()
+        public async Task<IActionResult> Signout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
     }
 }
