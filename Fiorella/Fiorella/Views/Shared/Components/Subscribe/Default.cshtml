@@ -1,0 +1,24 @@
+﻿@model SubscribeViewModel
+@{
+    Layout = null;
+}
+
+<section id="subscribe" style="background-image:url('@Url.Content("~/img/"+ Model.ContactSection.Image)')">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-12">
+                <div class="content text-center py-5">
+                    <h3>@Model.ContactSection.Title</h3>
+                    <div class="form-group d-flex justify-content-center flex-wrap mt-5">
+                       
+                            <input asp-for="subscriber.Email" placeholder="Email Address" id="email" class="form-control-lg rounded-0">
+                            <a class="btn btn-danger btn-lg rounded-0 px-5 mt-3 mt-sm-0" id="sub">Subscribe</a>
+                      
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,19 +1,26 @@
-﻿using Fiorella.Models.Entity;
+﻿using Fiorella.Models.Data;
+using Fiorella.Models.Entity;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Fiorella.Models.DataAccessLayer
 {
     static public class FiorellaSeedData
     {
-        static public IApplicationBuilder Seed(this IApplicationBuilder app)
+        static async public Task<IApplicationBuilder> Seed(this IApplicationBuilder app)
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<FiorellaDataContext>();
 
+                var role = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+               
+                db.Database.Migrate();
                 InitSlider(db);
                 InitSlideImages(db);
                 InitAbout(db);
@@ -24,14 +31,40 @@ namespace Fiorella.Models.DataAccessLayer
                 InitContactSection(db);
                 InitLayoutInfo(db);
                 InitBlog(db);
-                // InitUser(db);
-                //InitRole(db);
                 InitInstaSlide(db);
+                await InitRoles(role,db);
             }
             return app;
         }
 
-        private static void InitInstaSlide(FiorellaDataContext db)
+        private static async Task InitRoles(RoleManager<IdentityRole> role, FiorellaDataContext db)
+        {
+            if (!db.Roles.Any())
+            {
+
+                await role.CreateAsync(new IdentityRole { Name = RoleConstant.Admin });
+                await role.CreateAsync(new IdentityRole { Name = RoleConstant.User });
+                await role.CreateAsync(new IdentityRole { Name = RoleConstant.Moderator });
+
+            
+            }
+          await  db.SaveChangesAsync();
+        }
+
+        //private static void InitRoles(FiorellaDataContext db)
+        //{
+        //    if (!db.Roles.Any())
+        //    {
+        //        role
+        //        db.Roles.AddRange(
+        //            new IdentityRole {Name =  RoleConstant.Admin }, 
+        //            new IdentityRole { Name = RoleConstant.User }, 
+        //            new IdentityRole { Name = RoleConstant.Moderator});
+        //    }
+        //    db.SaveChanges();
+        //}
+
+        private static  void InitInstaSlide(FiorellaDataContext db)
         {
             if (!db.instaSlider.Any())
             {

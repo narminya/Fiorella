@@ -28,7 +28,7 @@ namespace Fiorella.Models.DataAccessLayer
         public DbSet<Blog> blogs { get; set; }
         public DbSet<MiniSlider> miniSliders { get; set; }
         public DbSet<SliderImage> instaSlider { get; set; }
-
+        public DbSet<Subscriber> subscribers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

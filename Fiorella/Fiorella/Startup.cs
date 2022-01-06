@@ -35,14 +35,17 @@ namespace Fiorella
             services.AddMvc();
             services.AddSession();
 
-            services.AddIdentity<User, IdentityRole>(options => {
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
                 options.Password.RequiredLength = 6;
                 options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<FiorellaDataContext>().AddDefaultTokenProviders();
+            }).AddRoles<IdentityRole>().AddEntityFrameworkStores<FiorellaDataContext>().AddDefaultTokenProviders();
 
             services.AddDbContext<FiorellaDataContext>(cfg =>
             {
-                cfg.UseSqlServer(_conf.GetConnectionString("DefaultConnection"));
+                cfg.UseSqlServer(_conf.GetConnectionString("DefaultConnection"),
+                    builder=> {
+                        builder.MigrationsAssembly(nameof(Fiorella));
+                    });
                // cfg.UseInMemoryDatabase(databaseName: "Fiorella");
             });
 
@@ -50,7 +53,7 @@ namespace Fiorella
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -58,7 +61,7 @@ namespace Fiorella
             }
 
             app.UseRouting();
-            app.Seed();
+           await app.Seed();
             app.UseAuthentication();
             app.UseStaticFiles();
 

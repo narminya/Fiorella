@@ -966,6 +966,7 @@ C:\Users\Narminya\Desktop\Trash\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razo
 C:\Users\Narminya\Desktop\Trash\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\appsettings.json
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\libman.json
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\Fiorella.exe
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\Fiorella.deps.json
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\Fiorella.runtimeconfig.json
@@ -1087,6 +1088,7 @@ C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.csproj.AssemblyReference.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.AssemblyInfoInputs.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.AssemblyInfo.cs
@@ -1094,21 +1096,21 @@ C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.RazorAssemblyInfo.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.RazorAssemblyInfo.cs
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\scopedcss\bundle\Fiorella.styles.css
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\staticwebassets\Fiorella.StaticWebAssets.Manifest.cache
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\staticwebassets\Fiorella.StaticWebAssets.xml
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\scopedcss\bundle\Fiorella.styles.css
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.TagHelpers.input.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.TagHelpers.output.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.RazorCoreGenerate.cache
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Detail.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Update.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Layout\Create.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Layout\Edit.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Layout\Index.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\MainSlider\Create.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\MainSlider\Index.cshtml.g.cs
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_SearchCategoryPartial.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_ValidatePartial.cshtml.g.cs
@@ -1117,6 +1119,8 @@ C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\Slider\Update.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
@@ -1124,6 +1128,7 @@ C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\Components\Navigation\Default.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\Components\Subscribe\Default.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\_ProductPartial.cshtml.g.cs
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Shared\_SearchedProductPartial.cshtml.g.cs
@@ -1137,7 +1142,4 @@ C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\ref\Fiorella.dll
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.pdb
 C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.genruntimeconfig.cache
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\staticwebassets\Fiorella.StaticWebAssets.xml
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Fiorella.csproj.AssemblyReference.cache
-C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\afsana.mammadova\Downloads\Fiorella\Fiorella\Fiorella\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs

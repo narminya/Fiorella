@@ -371,6 +371,30 @@ namespace Fiorella.Migrations
                     b.ToTable("SliderImage");
                 });
 
+            modelBuilder.Entity("Fiorella.Models.Entity.Subscriber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("subscribers");
+                });
+
             modelBuilder.Entity("Fiorella.Models.Entity.User", b =>
                 {
                     b.Property<string>("Id")

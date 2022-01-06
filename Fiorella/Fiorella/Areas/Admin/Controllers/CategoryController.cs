@@ -84,21 +84,12 @@ namespace Fiorella.Areas.Admin.Controllers
             return View(category);
         }
 
-        
+
         public async Task<IActionResult> Delete(int? id)
         {
             Category category = await _dt.categories.FindAsync(id);
 
-            return View(category);
-        }
-
-        [HttpPost]
-        [ActionName("Delete")]
-        public async Task<IActionResult> DeleteCategory(int? id)
-        {
-            Category category = await _dt.categories.FindAsync(id);
-
-            if (category==null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -106,7 +97,7 @@ namespace Fiorella.Areas.Admin.Controllers
             _dt.categories.Remove(category);
             await _dt.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return Json(new { message = "Category has been deleted successfully!" });
         }
 
         public async Task<PartialViewResult> Search(string searchFor)
@@ -117,7 +108,7 @@ namespace Fiorella.Areas.Admin.Controllers
             }
 
             var result = await _dt.categories.Where(p => p.Name.ToLower().Contains(searchFor.ToLower())).ToListAsync();
-            return PartialView("_SearchCategoryPartial", result); 
+            return PartialView("_SearchCategoryPartial", result);
         }
 
     }

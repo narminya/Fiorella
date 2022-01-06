@@ -35,6 +35,7 @@ namespace Fiorella.Controllers
             }
 
             var products = await _dt.products.Where(p => p.Name.ToLower().Contains(searched.ToLower())).ToListAsync();
+       
             return PartialView("_SearchedProductPartial", products);
         }
     }

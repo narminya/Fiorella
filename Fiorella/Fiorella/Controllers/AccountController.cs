@@ -1,4 +1,5 @@
-﻿using Fiorella.Models.Entity;
+﻿using Fiorella.Models.Data;
+using Fiorella.Models.Entity;
 using Fiorella.Models.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -56,8 +57,9 @@ namespace Fiorella.Controllers
                 }
               
             }
-
             await _signInManager.SignInAsync(user, true);
+            await _userManager.AddToRoleAsync(user, RoleConstant.User);
+
             return RedirectToAction("Index","Home");
         }
 
