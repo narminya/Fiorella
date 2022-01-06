@@ -38,11 +38,8 @@
                                         <td>@item.Role</td>
                                         <td class="d-flex justify-content-around">
                                             <a class="btn btn-primary" asp-controller="User" asp-action="AddRole" asp-route-id="@item.Id">Choose role</a>
-                                          <form type="post">
-                                              <select asp-for="@TempData["Roles"]"></select>
-                                              <button type="submit"></button>
-                                          </form>
-                                            <a class="btn btn-primary" asp-controller="User" asp-action="detail" asp-route-id="@item.Id">Change password</a>
+                                         
+                                            <a class="btn btn-primary" asp-controller="User" asp-action="ChangePassword" asp-route-id="@item.Id">Change password</a>
                                             <a class="btn btn-primary" asp-controller="User" asp-action="detail" asp-route-id="@item.Id">Deactivate</a>
 
                                         </td>

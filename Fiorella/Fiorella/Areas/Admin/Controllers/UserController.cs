@@ -17,9 +17,9 @@ namespace Fiorella.Areas.Admin.Controllers
     {
         private readonly FiorellaDataContext _db;
         private readonly UserManager<User> _user;
-        private readonly RoleManager<User> _role;
+       private readonly RoleManager<IdentityRole> _role;
 
-        public UserController(FiorellaDataContext db, UserManager<User> user, RoleManager<User> role)
+        public UserController(FiorellaDataContext db, UserManager<User> user, RoleManager<IdentityRole> role)
         {
             _db = db;
             _role = role;
@@ -56,14 +56,62 @@ namespace Fiorella.Areas.Admin.Controllers
             }
 
          
-            return View();
+            return View(userList);
+        }
+        public async Task<IActionResult> ChangePassword(string Id)
+        {
+
+            var user = await _db.Users.FindAsync(Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            var changePasswordViewModel = new ChangePasswordViewModel()
+            {
+                Id = user.Id,
+                Username = user.UserName 
+            };
+            return View(changePasswordViewModel);
         }
 
         [HttpPost]
-        public IActionResult AddRole()
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(string Id,ChangePasswordViewModel model)
         {
-            TempData["Roles"] = new SelectList(_db.Roles, "Id", "Name");
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var user = await _user.FindByIdAsync(model.Id);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "User is not found");
+                return View();
+            }
+
+
+            ChangePasswordViewModel viewModel = new ChangePasswordViewModel()
+            {
+                Id = model.Id,
+                Username = model.Username
+            };
+
+            var passwordcheck = await _user.CheckPasswordAsync(user, model.OldPassword);
+            if (!passwordcheck)
+            {
+                ModelState.AddModelError("", "Old password is wrong");
+                return View(viewModel);
+            }
+
+            var passwordChangeResult = await _user.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            if (!passwordChangeResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Something went wrong,try again");
+                return View();
+            }
             return View();
+
         }
     }
 }

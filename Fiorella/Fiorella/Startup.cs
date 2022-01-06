@@ -35,10 +35,10 @@ namespace Fiorella
             services.AddMvc();
             services.AddSession();
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+            services.AddIdentity<User, IdentityRole>(options => {
                 options.Password.RequiredLength = 6;
                 options.User.RequireUniqueEmail = true;
-            }).AddRoles<IdentityRole>().AddEntityFrameworkStores<FiorellaDataContext>().AddDefaultTokenProviders();
+            }).AddEntityFrameworkStores<FiorellaDataContext>().AddDefaultTokenProviders();
 
             services.AddDbContext<FiorellaDataContext>(cfg =>
             {
@@ -59,7 +59,7 @@ namespace Fiorella
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseRouting();
            await app.Seed();
             app.UseAuthentication();
