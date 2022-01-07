@@ -1,4 +1,5 @@
 ﻿using Fiorella.Areas.Admin.ViewModel;
+using Fiorella.Models.Data;
 using Fiorella.Models.DataAccessLayer;
 using Fiorella.Models.Entity;
 using Microsoft.AspNetCore.Identity;
@@ -54,8 +55,9 @@ namespace Fiorella.Areas.Admin.Controllers
                     Role = (await _user.GetRolesAsync(item))[0] 
                 });
             }
+            ViewData["Roles"] = new SelectList(_db.Roles);
 
-         
+
             return View(userList);
         }
         public async Task<IActionResult> ChangePassword(string Id)
@@ -112,6 +114,16 @@ namespace Fiorella.Areas.Admin.Controllers
             }
             return View();
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeRole(string id,string role)
+        {
+            
+            var user = await _db.Users.FindAsync(id);
+           // (await _user.GetRolesAsync(user))[0] = role;
+           await _user.AddToRoleAsync(user, role);
+            return RedirectToAction("Index");
         }
     }
 }
