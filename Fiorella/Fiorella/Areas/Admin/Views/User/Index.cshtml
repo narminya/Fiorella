@@ -37,12 +37,14 @@
                                         <td>@item.Email</td>
                                         <td>@item.Role</td>
                                         <td class="d-flex justify-content-around">
-                                            <form class="d-flex justify-content-around" asp-action="ChangeRole">
+                                            <form id="roleForm" class="d-flex justify-content-around" asp-action="ChangeRole">
                                                 <select name="role" class="form-control" asp-items=ViewBag.Roles></select>
                                                 <button id="" class="btn btn-behance chooseRole" data-id="@item.Id">Change</button>
                                             </form>
                                             <a class="btn btn-primary" asp-controller="User" asp-action="ChangePassword" asp-route-id="@item.Id">Change password</a>
-                                            <a class="btn btn-primary" asp-controller="User" asp-action="detail" asp-route-id="@item.Id">Deactivate</a>
+                                            <form  asp-action="DisableUser" asp-route-id="@item.Id">
+                                                <button type="submit" class="btn btn-primary">Deactivate</button>
+                                            </form>
 
                                         </td>
                                     </tr>
@@ -62,7 +64,7 @@
     <partial name="_ValidatePartial" />
     <script>
 
-        $(document).on("submit", "form", function (e) {
+        $(document).on("submit", "#roleForm", function (e) {
             e.preventDefault();
             let formData = new FormData(e.currentTarget);
             let role = formData.get("role");

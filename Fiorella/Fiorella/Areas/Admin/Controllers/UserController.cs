@@ -118,12 +118,21 @@ namespace Fiorella.Areas.Admin.Controllers
 
         [HttpPost]
         public async Task<IActionResult> ChangeRole(string id,string role)
-        {
-            
+        {            
             var user = await _db.Users.FindAsync(id);
-           // (await _user.GetRolesAsync(user))[0] = role;
            await _user.AddToRoleAsync(user, role);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DisableUser(string id)
+        {
+            var user = await _db.Users.FindAsync(id);
+            await _user.SetLockoutEnabledAsync(user, true);
+            await _user.SetLockoutEndDateAsync(user, new DateTimeOffset(DateTime.MaxValue));
+         //  await _user.UpdateSecurityStampAsync(user);
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

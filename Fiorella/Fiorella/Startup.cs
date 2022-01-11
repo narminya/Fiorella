@@ -49,6 +49,8 @@ namespace Fiorella
                // cfg.UseInMemoryDatabase(databaseName: "Fiorella");
             });
 
+            services.AddScoped<UserManager<User>>();
+            services.AddScoped<RoleManager<IdentityRole>>();
             FileConstants.ImagePath = Path.Combine(_env.WebRootPath, "img");
         }
 
