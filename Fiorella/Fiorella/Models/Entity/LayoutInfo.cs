@@ -10,7 +10,6 @@ namespace Fiorella.Models.Entity
 {
     public class LayoutInfo : BaseEntity
     {
-        [Required]
         public string Logo { get; set; }
         [Required]
         public string LinkedId { get; set; }

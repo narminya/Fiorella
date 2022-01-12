@@ -23,6 +23,7 @@ namespace Fiorella.Areas.Admin.Controllers
         {
             var slider = await _dt.slider.FirstOrDefaultAsync();
             var sliderImages = await _dt.sliderImage.Where(s => s.SliderId == slider.Id).ToListAsync();
+    
             SliderViewModel svm = new SliderViewModel()
             {
                 Slider = slider,
@@ -55,7 +56,9 @@ namespace Fiorella.Areas.Admin.Controllers
             }
 
             svm.Slider.Signature = FileUtil.FileCreate(svm.Slider.File);
-            svm.Images = new List<SliderImage>();
+            svm.Images = new List<SliderImage>(); 
+            await _dt.slider.AddAsync(svm.Slider);
+            await _dt.SaveChangesAsync();
             foreach (var item in svm.File)
             {
                 if (!item.ContentType.Contains("image"))
@@ -74,7 +77,7 @@ namespace Fiorella.Areas.Admin.Controllers
             }
 
             await _dt.sliderImage.AddRangeAsync(svm.Images);
-            await _dt.slider.AddAsync(svm.Slider);
+
             await _dt.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
